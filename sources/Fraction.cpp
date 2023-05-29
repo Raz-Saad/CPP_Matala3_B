@@ -98,7 +98,7 @@ namespace ariel
         Fraction ans(num);
         return operator+(ans);
     }
-    
+
     Fraction operator+(float num1, const Fraction &num2)
     {
         Fraction ans(num1);
@@ -256,12 +256,7 @@ namespace ariel
 
     bool Fraction::operator<(const Fraction &num) const
     {
-        int first = this->Numerator * num.Denominator;
-        int second = num.Numerator * this->Denominator;
-        if (!(first > second) && !(first==second))
-            return true;
-        else
-            return false;
+        return !(*this > num || *this == num);
     }
 
     bool Fraction::operator<(float num) const
@@ -278,12 +273,7 @@ namespace ariel
 
     bool Fraction::operator>=(const Fraction &num) const
     {
-        int first = this->Numerator * num.Denominator;
-        int second = num.Numerator * this->Denominator;
-        if (first > second || first == second)
-            return true;
-        else
-            return false;
+        return (*this > num || *this == num);
     }
 
     bool Fraction::operator>=(float num) const
@@ -300,12 +290,7 @@ namespace ariel
 
     bool Fraction::operator<=(const Fraction &num) const
     {
-        int first = this->Numerator * num.Denominator;
-        int second = num.Numerator * this->Denominator;
-        if (first < second || first == second)
-            return true;
-        else
-            return false;
+        return (*this < num || *this == num);
     }
 
     bool Fraction::operator<=(float num) const
