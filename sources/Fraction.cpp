@@ -258,7 +258,7 @@ namespace ariel
     {
         int first = this->Numerator * num.Denominator;
         int second = num.Numerator * this->Denominator;
-        if (first < second)
+        if (!(first > second) && !(first==second))
             return true;
         else
             return false;
@@ -280,7 +280,7 @@ namespace ariel
     {
         int first = this->Numerator * num.Denominator;
         int second = num.Numerator * this->Denominator;
-        if (first >= second)
+        if (first > second || first == second)
             return true;
         else
             return false;
@@ -302,7 +302,7 @@ namespace ariel
     {
         int first = this->Numerator * num.Denominator;
         int second = num.Numerator * this->Denominator;
-        if (first <= second)
+        if (first < second || first == second)
             return true;
         else
             return false;
